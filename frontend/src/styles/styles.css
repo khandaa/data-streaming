@@ -1,0 +1,236 @@
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  transition: width 0.3s ease;
+  overflow-x: hidden;
+}
+
+.sidebar-open {
+  width: 250px;
+}
+
+.sidebar-closed {
+  width: 65px;
+}
+
+/* Sidebar Item Styles */
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  color: rgba(0, 0, 0, 0.87);
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.sidebar-item:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.sidebar-item.active {
+  background-color: rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #1976d2;
+}
+
+.sidebar-item-text {
+  margin-left: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Main Content Area */
+.main-content {
+  flex-grow: 1;
+  padding: 24px;
+  margin-left: 65px;
+  transition: margin-left 0.3s ease;
+}
+
+.main-content-sidebar-open {
+  margin-left: 250px;
+}
+
+/* Dashboard Card Styles */
+.dashboard-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-card-content {
+  flex-grow: 1;
+}
+
+/* Status Indicator */
+.status-indicator {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-running {
+  background-color: #4caf50;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+  animation: pulse 1.5s infinite;
+}
+
+.status-stopped {
+  background-color: #f44336;
+}
+
+.status-warning {
+  background-color: #ff9800;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+  }
+}
+
+/* Metric Card */
+.metric-card {
+  text-align: center;
+  padding: 16px;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.metric-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 8px 0;
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+}
+
+/* Chart Container */
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 300px;
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .sidebar-open {
+    width: 200px;
+  }
+  
+  .main-content-sidebar-open {
+    margin-left: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    position: fixed;
+    z-index: 1200;
+    height: 100%;
+    background-color: white;
+  }
+  
+  .main-content {
+    margin-left: 0;
+    padding: 16px;
+  }
+  
+  .main-content-sidebar-open {
+    margin-left: 0;
+  }
+}
+
+/* Admin Dashboard Styles */
+.admin-control-button {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+/* Form Styling */
+.form-container {
+  padding: 24px;
+}
+
+.form-submit-button {
+  margin-top: 24px;
+}
+
+/* Table Styles */
+.table-container {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+/* Code Block Styling for Help Page */
+.code-block {
+  font-family: 'Courier New', monospace;
+  background-color: #f5f5f5;
+  padding: 16px;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+/* Log Entry Styling */
+.log-entry-error {
+  color: #f44336;
+}
+
+.log-entry-warning {
+  color: #ff9800;
+}
+
+.log-entry-info {
+  color: #2196f3;
+}
+
+/* Help Page Accordion Styling */
+.help-accordion {
+  margin-bottom: 8px;
+}
+
+.help-accordion-summary {
+  background-color: #f5f5f5;
+}
+
+/* Chip Styling */
+.chip-running {
+  background-color: #4caf50;
+  color: white;
+}
+
+.chip-stopped {
+  background-color: #f44336;
+  color: white;
+}
+
+.chip-warning {
+  background-color: #ff9800;
+  color: white;
+}

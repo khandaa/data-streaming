@@ -1,0 +1,50 @@
+[
+  {
+    "reading_id": "b1e8f9a7-c6d5-4e3f-2a1b-0c9d8e7f6a5b",
+    "sensor_id": "sensor_4321",
+    "device_id": "device_567",
+    "sensor_type": "temperature",
+    "timestamp": "2025-06-02T11:30:12.123Z",
+    "location": "living_room",
+    "value": 22.8,
+    "unit": "celsius",
+    "battery_level": 78,
+    "metadata": {
+      "firmware_version": "3.2.1",
+      "installation_date": "2024-11-15",
+      "last_maintenance": "2025-05-01"
+    }
+  },
+  {
+    "reading_id": "c2f9g0b8-d7e6-5f4g-3b2c-1d0e9f8g7h6c",
+    "sensor_id": "sensor_5432",
+    "device_id": "device_567",
+    "sensor_type": "humidity",
+    "timestamp": "2025-06-02T11:30:12.356Z",
+    "location": "living_room",
+    "value": 42.5,
+    "unit": "percent",
+    "battery_level": 76,
+    "metadata": {
+      "firmware_version": "3.2.1",
+      "installation_date": "2024-11-15",
+      "last_maintenance": "2025-05-01"
+    }
+  },
+  {
+    "reading_id": "d3g0h1c9-e8f7-6g5h-4c3d-2e1f0g9h8i7d",
+    "sensor_id": "sensor_6789",
+    "device_id": "device_890",
+    "sensor_type": "motion",
+    "timestamp": "2025-06-02T11:35:18.789Z",
+    "location": "kitchen",
+    "value": 1,
+    "unit": "binary",
+    "battery_level": 92,
+    "metadata": {
+      "firmware_version": "4.1.0",
+      "installation_date": "2025-01-10",
+      "last_maintenance": "2025-04-15"
+    }
+  }
+]

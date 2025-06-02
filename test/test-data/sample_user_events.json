@@ -1,0 +1,63 @@
+[
+  {
+    "event_id": "e3b0c442-98fc-4c25-b4f3-0d54d8e2973b",
+    "event_type": "login",
+    "timestamp": "2025-06-02T11:45:12.232Z",
+    "user_id": "user_a7f9bc8d",
+    "session_id": "session_e8f2a31c4b7d9605",
+    "platform": "web",
+    "browser": "chrome",
+    "country": "US",
+    "ip_address": "192.168.23.45",
+    "device_id": "device_a1b2c3d4e5",
+    "data": {
+      "page": "/login",
+      "referrer": "/homepage",
+      "duration_sec": 15,
+      "successful": true
+    }
+  },
+  {
+    "event_id": "f4c1d532-87bd-5d36-c5g4-1e65e9f3a84c",
+    "event_type": "purchase",
+    "timestamp": "2025-06-02T11:47:28.612Z",
+    "user_id": "user_a7f9bc8d",
+    "session_id": "session_e8f2a31c4b7d9605",
+    "platform": "web",
+    "browser": "chrome",
+    "country": "US",
+    "ip_address": "192.168.23.45",
+    "device_id": "device_a1b2c3d4e5",
+    "data": {
+      "page": "/checkout",
+      "referrer": "/product/123",
+      "duration_sec": 120,
+      "successful": true,
+      "transaction": {
+        "transaction_id": "tx_f7e6d5c4b3",
+        "amount": 129.99,
+        "currency": "USD",
+        "items": 3,
+        "payment_method": "credit_card"
+      }
+    }
+  },
+  {
+    "event_id": "g5d2e643-98cf-6e47-d6h5-2f76f0g4b95d",
+    "event_type": "logout",
+    "timestamp": "2025-06-02T12:15:33.427Z",
+    "user_id": "user_a7f9bc8d",
+    "session_id": "session_e8f2a31c4b7d9605",
+    "platform": "web",
+    "browser": "chrome",
+    "country": "US",
+    "ip_address": "192.168.23.45",
+    "device_id": "device_a1b2c3d4e5",
+    "data": {
+      "page": "/account",
+      "referrer": "/order-confirmation",
+      "duration_sec": 1685,
+      "successful": true
+    }
+  }
+]
