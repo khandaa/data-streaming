@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2025-06-03
+
+### Added
+- Complete Docker containerization of the application
+- Docker Compose setup with Kafka, Zookeeper, Kafka UI, Backend, and Frontend services
+- Environment file templates for Docker deployment
+- Docker deployment documentation in README
+
+### Fixed
+- SQS Simulator receipt handle parsing bug with queue names containing hyphens
+- Import path issues in backend Python files
+- Werkzeug compatibility issue with Flask 2.2.3
+- Missing frontend public files for React build
+
+### Changed
+- Updated docker-compose.yml with production-ready configurations
+- Improved security in Docker setup with proper user permissions
+- Added healthchecks for all containerized services
+
 ## [1.0.0] - 2025-06-02
 
 ### Added

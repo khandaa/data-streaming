@@ -8,9 +8,9 @@ import json
 from datetime import datetime
 from typing import Dict, Any, Optional, List
 
-from backend.src.connectors.sqs_connector import SQSConnector
-from backend.src.connectors.kafka_connector import KafkaConnector
-from backend.src.config.config import KAFKA_TOPIC
+from src.connectors.sqs_connector import SQSConnector
+from src.connectors.kafka_connector import KafkaConnector
+from src.config.config import KAFKA_TOPIC
 
 logger = logging.getLogger(__name__)
 

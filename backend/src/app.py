@@ -9,7 +9,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 from apscheduler.schedulers.background import BackgroundScheduler
 
-from backend.src.config.config import (
+from src.config.config import (
     APP_HOST,
     APP_PORT,
     DEBUG,
@@ -17,9 +17,9 @@ from backend.src.config.config import (
     LOG_FORMAT,
     KAFKA_TOPIC
 )
-from backend.src.connectors.sqs_connector import SQSConnector
-from backend.src.connectors.kafka_connector import KafkaConnector
-from backend.src.utils.stream_processor import StreamProcessor
+from src.connectors.sqs_connector import SQSConnector
+from src.connectors.kafka_connector import KafkaConnector
+from src.utils.stream_processor import StreamProcessor
 
 # Set up logging
 logging.basicConfig(
@@ -48,9 +48,16 @@ metrics = {
     'stream_status': 'stopped'
 }
 
+@app.route('/health', methods=['GET'])
+def simple_health_check():
+    """Simple health check endpoint for Docker."""
+    return jsonify({
+        'status': 'healthy'
+    })
+
 @app.route('/api/health', methods=['GET'])
 def health_check():
-    """Health check endpoint."""
+    """Detailed health check endpoint."""
     return jsonify({
         'status': 'healthy',
         'sqs_connected': sqs_connector is not None,

@@ -12,7 +12,7 @@ from datetime import datetime
 from confluent_kafka import Consumer, Producer, KafkaError, KafkaException
 from confluent_kafka.admin import AdminClient, NewTopic
 
-from backend.src.config.config import (
+from src.config.config import (
     KAFKA_BOOTSTRAP_SERVERS,
     KAFKA_SECURITY_PROTOCOL,
     KAFKA_SASL_MECHANISM,
@@ -222,19 +222,35 @@ class SQSSimulatorConnector:
         """
         try:
             # Parse the receipt handle to get topic, partition, offset
-            parts = receipt_handle.split('-')
-            if len(parts) >= 3:
-                topic = parts[0]
-                partition = int(parts[1])
-                offset = int(parts[2])
+            # Format: {queue_name}-{partition}-{offset}-{uuid}
+            # We need to be careful as queue_name might contain hyphens
+            
+            # First extract the last part (uuid)
+            last_hyphen_index = receipt_handle.rfind('-')
+            if last_hyphen_index < 0:
+                raise ValueError(f"Invalid receipt handle format: {receipt_handle}")
                 
-                # In Kafka, "deleting" a message is done by committing the offset
-                # We've already stored the offset when receiving, so no additional action is needed
-                logger.debug(f"Simulated deletion of message with receipt handle {receipt_handle[:10]}...")
-                return True
-            else:
-                logger.error(f"Invalid receipt handle format: {receipt_handle}")
-                return False
+            # Extract the remaining parts without the uuid
+            handle_without_uuid = receipt_handle[:last_hyphen_index]
+            
+            # Now find the last two hyphens in the remaining string
+            offset_hyphen_index = handle_without_uuid.rfind('-')
+            if offset_hyphen_index < 0:
+                raise ValueError(f"Invalid receipt handle format: {receipt_handle}")
+                
+            partition_hyphen_index = handle_without_uuid.rfind('-', 0, offset_hyphen_index)
+            if partition_hyphen_index < 0:
+                raise ValueError(f"Invalid receipt handle format: {receipt_handle}")
+            
+            # Extract the parts
+            topic = handle_without_uuid[:partition_hyphen_index]
+            partition = int(handle_without_uuid[partition_hyphen_index+1:offset_hyphen_index])
+            offset = int(handle_without_uuid[offset_hyphen_index+1:])
+            
+            # In Kafka, "deleting" a message is done by committing the offset
+            # We've already stored the offset when receiving, so no additional action is needed
+            logger.debug(f"Simulated deletion of message with receipt handle {receipt_handle[:10]}...")
+            return True
                 
         except Exception as e:
             logger.error(f"Error deleting message: {e}")

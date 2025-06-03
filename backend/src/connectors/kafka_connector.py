@@ -9,7 +9,7 @@ from typing import Dict, Any, Optional, List
 from confluent_kafka import Producer, KafkaException, KafkaError
 from confluent_kafka.admin import AdminClient, NewTopic
 
-from backend.src.config.config import (
+from src.config.config import (
     KAFKA_BOOTSTRAP_SERVERS,
     KAFKA_TOPIC,
     KAFKA_SECURITY_PROTOCOL,

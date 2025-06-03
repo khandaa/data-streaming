@@ -102,7 +102,7 @@ data_streaming/
 - AWS account with SQS access
 - Kafka cluster access
 
-### Quick Setup
+### Quick Setup (Local Development)
 
 1. Clone this repository
 2. Set up the backend environment:
@@ -155,6 +155,47 @@ data_streaming/
    cd backend
    source ../venv/bin/activate
    python src/streaming_app2.py
+   ```
+
+### Docker Deployment
+
+1. Clone this repository
+
+2. Configure environment variables:
+   ```bash
+   # Copy the example Docker environment file
+   cp backend/.env.docker.example backend/.env.docker
+   
+   # Edit with your actual settings
+   nano backend/.env.docker
+   ```
+
+3. Build and start the containers:
+   ```bash
+   # Build and start all services
+   docker compose up -d
+   ```
+
+4. Verify all services are running:
+   ```bash
+   docker ps
+   ```
+
+5. Access the application:
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:5000
+   - Kafka UI: http://localhost:8080
+
+6. Stop the application:
+   ```bash
+   docker compose down
+   ```
+
+7. For development with live changes:
+   ```bash
+   # Uncomment the volumes section in docker-compose.yml for the backend service
+   # Then rebuild and restart
+   docker compose up -d --build
    ```
 
 ## Documentation
